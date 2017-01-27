@@ -42,7 +42,6 @@
 #include <linux/msm_thermal.h>
 #include <linux/input/synaptics_dsx.h>
 #include <linux/input/ltr553.h>
-
 #include <linux/slimbus/slimbus.h>
 #include <linux/mfd/wcd9xxx/core.h>
 #include <linux/mfd/wcd9xxx/pdata.h>
@@ -2029,7 +2028,7 @@ static struct i2c_board_info etzkx_i2c_devices[] = {
 
 /*»     LTR-554ALS»  */
 
-static struct ltr553_platform_data ltr553_platformdata = {
+static struct ltr554_platform_data ltr554_platformdata = {
 	.irq_gpio = 49,
 	.irq_flags = IRQF_TRIGGER_LOW | IRQF_ONESHOT,
 	.als_ps_persist = 0x11,
@@ -2042,8 +2041,8 @@ static struct ltr553_platform_data ltr553_platformdata = {
 
 static struct i2c_board_info ltr554als[] = {
 	{
-		I2C_BOARD_INFO("ltr553", 0x23),
-		.platform_data = &ltr553_platformdata,
+		I2C_BOARD_INFO("ltr554", 0x23),
+		.platform_data = &ltr554_platformdata,
 	},
 };
 
