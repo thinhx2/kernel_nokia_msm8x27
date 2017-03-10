@@ -41,7 +41,6 @@
 #include <linux/memblock.h>
 #include <linux/msm_thermal.h>
 #include <linux/input/synaptics_dsx.h>
-#include <linux/input/ltr553.h>
 #include <linux/slimbus/slimbus.h>
 #include <linux/mfd/wcd9xxx/core.h>
 #include <linux/mfd/wcd9xxx/pdata.h>
@@ -2025,26 +2024,6 @@ static struct i2c_board_info etzkx_i2c_devices[] = {
 };
 
 #endif
-
-/*»     LTR-554ALS»  */
-
-static struct ltr554_platform_data ltr554_platformdata = {
-	.irq_gpio = 49,
-	.irq_flags = IRQF_TRIGGER_LOW | IRQF_ONESHOT,
-	.als_ps_persist = 0x11,
-	.ps_led = 0x7f,
-	.ps_pulses = 8,
-	.als_integration_time = 0,
-	.ps_wakeup_threshold = 4,
-	
-};
-
-static struct i2c_board_info ltr554als[] = {
-	{
-		I2C_BOARD_INFO("ltr554", 0x23),
-		.platform_data = &ltr554_platformdata,
-	},
-};
 
 #define MHL_POWER_GPIO_PM8038	PM8038_GPIO_PM_TO_SYS(MHL_GPIO_PWR_EN)
 #define MHL_POWER_GPIO_PM8917	PM8917_GPIO_PM_TO_SYS(25)
